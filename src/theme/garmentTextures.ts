@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import type { RegionId } from '../i18n/translations';
+import { publicUrl } from '../utils/publicUrl';
 
 const loader = new THREE.TextureLoader();
 const cache = new Map<string, THREE.Texture>();
@@ -7,7 +8,7 @@ const cache = new Map<string, THREE.Texture>();
 const REGIONS: RegionId[] = ['europe', 'china', 'india', 'korea', 'japan', 'arab'];
 
 export function garmentTextureUrl(region: RegionId, team: 'w' | 'b'): string {
-  return `/textures/garments/garment_${region}_${team}.png`;
+  return publicUrl(`/textures/garments/garment_${region}_${team}.png`);
 }
 
 /** Photoreal garment PNG from `public/textures/garments/`. */

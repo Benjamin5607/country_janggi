@@ -3,9 +3,12 @@ import * as THREE from 'three';
 import { useTexture } from '@react-three/drei';
 import { useGame } from '../game/GameContext';
 import type { TerrainId } from '../i18n/translations';
+import { publicUrl } from '../utils/publicUrl';
 import { terrainHeight, terrainSlope } from './terrain/heightfield';
 import { TerrainScatter } from './terrain/TerrainScatter';
 import { MountainRing } from './terrain/MountainRing';
+
+const tex = (path: string) => publicUrl(path);
 
 const SIZE = 140;
 const SEG = 160;
@@ -21,44 +24,44 @@ type TerrainMaps = {
 
 const MAPS: Record<TerrainId, TerrainMaps> = {
   plains: {
-    grass: '/textures/terrain/grass_albedo.jpg',
-    sand: '/textures/terrain/dirt_albedo.jpg',
-    dirt: '/textures/terrain/dirt_albedo.jpg',
-    rock: '/textures/terrain/rock_albedo.jpg',
-    grassN: '/textures/terrain/grass_normal.jpg',
-    sandN: '/textures/terrain/grass_normal.jpg',
+    grass: tex('/textures/terrain/grass_albedo.jpg'),
+    sand: tex('/textures/terrain/dirt_albedo.jpg'),
+    dirt: tex('/textures/terrain/dirt_albedo.jpg'),
+    rock: tex('/textures/terrain/rock_albedo.jpg'),
+    grassN: tex('/textures/terrain/grass_normal.jpg'),
+    sandN: tex('/textures/terrain/grass_normal.jpg'),
   },
   grassland: {
-    grass: '/textures/terrain/grass_albedo.jpg',
-    sand: '/textures/terrain/dirt_albedo.jpg',
-    dirt: '/textures/terrain/dirt_albedo.jpg',
-    rock: '/textures/terrain/rock_albedo.jpg',
-    grassN: '/textures/terrain/grass_normal.jpg',
-    sandN: '/textures/terrain/grass_normal.jpg',
+    grass: tex('/textures/terrain/grass_albedo.jpg'),
+    sand: tex('/textures/terrain/dirt_albedo.jpg'),
+    dirt: tex('/textures/terrain/dirt_albedo.jpg'),
+    rock: tex('/textures/terrain/rock_albedo.jpg'),
+    grassN: tex('/textures/terrain/grass_normal.jpg'),
+    sandN: tex('/textures/terrain/grass_normal.jpg'),
   },
   desert: {
-    grass: '/textures/terrain/sand_albedo.jpg',
-    sand: '/textures/terrain/sand_albedo.jpg',
-    dirt: '/textures/terrain/sand_albedo.jpg',
-    rock: '/textures/terrain/rock_albedo.jpg',
-    grassN: '/textures/terrain/sand_normal.jpg',
-    sandN: '/textures/terrain/sand_normal.jpg',
+    grass: tex('/textures/terrain/sand_albedo.jpg'),
+    sand: tex('/textures/terrain/sand_albedo.jpg'),
+    dirt: tex('/textures/terrain/sand_albedo.jpg'),
+    rock: tex('/textures/terrain/rock_albedo.jpg'),
+    grassN: tex('/textures/terrain/sand_normal.jpg'),
+    sandN: tex('/textures/terrain/sand_normal.jpg'),
   },
   steppe: {
-    grass: '/textures/terrain/grass_albedo.jpg',
-    sand: '/textures/terrain/sand_albedo.jpg',
-    dirt: '/textures/terrain/dirt_albedo.jpg',
-    rock: '/textures/terrain/rock_albedo.jpg',
-    grassN: '/textures/terrain/grass_normal.jpg',
-    sandN: '/textures/terrain/sand_normal.jpg',
+    grass: tex('/textures/terrain/grass_albedo.jpg'),
+    sand: tex('/textures/terrain/sand_albedo.jpg'),
+    dirt: tex('/textures/terrain/dirt_albedo.jpg'),
+    rock: tex('/textures/terrain/rock_albedo.jpg'),
+    grassN: tex('/textures/terrain/grass_normal.jpg'),
+    sandN: tex('/textures/terrain/sand_normal.jpg'),
   },
   highlands: {
-    grass: '/textures/terrain/grass_albedo.jpg',
-    sand: '/textures/terrain/dirt_albedo.jpg',
-    dirt: '/textures/terrain/rock_albedo.jpg',
-    rock: '/textures/terrain/rock_albedo.jpg',
-    grassN: '/textures/terrain/grass_normal.jpg',
-    sandN: '/textures/terrain/grass_normal.jpg',
+    grass: tex('/textures/terrain/grass_albedo.jpg'),
+    sand: tex('/textures/terrain/dirt_albedo.jpg'),
+    dirt: tex('/textures/terrain/rock_albedo.jpg'),
+    rock: tex('/textures/terrain/rock_albedo.jpg'),
+    grassN: tex('/textures/terrain/grass_normal.jpg'),
+    sandN: tex('/textures/terrain/grass_normal.jpg'),
   },
 };
 

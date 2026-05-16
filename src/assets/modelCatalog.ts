@@ -6,6 +6,7 @@ import {
   regionPieceGlbUrl,
   riggedTeamGlbUrl,
 } from '../models/armyModels';
+import { publicUrl } from '../utils/publicUrl';
 
 const DB_NAME = 'country-chess-models';
 const STORE = 'glb';
@@ -104,7 +105,7 @@ export function resolveModelUrl(
 export { hunyuanPieceGlbUrl, riggedTeamGlbUrl };
 
 export function nationTeamUnitPath(region: RegionId, team: 'w' | 'b'): string {
-  return `/textures/units/unit_${region}_${team}.png`;
+  return publicUrl(`/textures/units/unit_${region}_${team}.png`);
 }
 
 export async function importGlbFile(

@@ -1,8 +1,9 @@
 import type { PieceSymbol } from 'chess.js';
 import type { RegionId } from '../i18n/translations';
+import { publicUrl } from '../utils/publicUrl';
 
 /** Fallback rig for optional GLB workshop uploads only (not default gameplay). */
-export const SHARED_SOLDIER_GLB = '/models/shared/soldier.glb';
+export const SHARED_SOLDIER_GLB = publicUrl('/models/shared/soldier.glb');
 
 /** Rigged soldier GLB — ~85% of board cell. */
 export const PIECE_SCALE: Record<PieceSymbol, number> = {
@@ -16,5 +17,5 @@ export const PIECE_SCALE: Record<PieceSymbol, number> = {
 
 /** Optional override path — drop `public/models/regions/{region}/{piece}.glb` to replace the shared rig. */
 export function pieceModelUrl(region: RegionId, type: PieceSymbol): string {
-  return `/models/regions/${region}/${type}.glb`;
+  return publicUrl(`/models/regions/${region}/${type}.glb`);
 }

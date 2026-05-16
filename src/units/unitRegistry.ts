@@ -1,11 +1,12 @@
 import type { PieceSymbol } from 'chess.js';
 import { PIECE_SCALE } from '../models/registry';
 import type { RegionId } from '../i18n/translations';
+import { publicUrl } from '../utils/publicUrl';
 
 export type UnitTeam = 'w' | 'b';
 
 export function unitTextureUrl(region: RegionId, team: UnitTeam): string {
-  return `/textures/units/unit_${region}_${team}.png`;
+  return publicUrl(`/textures/units/unit_${region}_${team}.png`);
 }
 
 export const PIECE_HEIGHT: Record<PieceSymbol, number> = {

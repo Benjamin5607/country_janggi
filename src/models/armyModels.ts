@@ -1,5 +1,6 @@
 import type { Color, PieceSymbol } from 'chess.js';
 import type { RegionId } from '../i18n/translations';
+import { publicUrl } from '../utils/publicUrl';
 import { pieceModelUrl } from './registry';
 
 const REGIONS: RegionId[] = ['europe', 'china', 'india', 'korea', 'japan', 'arab'];
@@ -8,12 +9,12 @@ const REGIONS: RegionId[] = ['europe', 'china', 'india', 'korea', 'japan', 'arab
  *   public/models/rigged/{region}_{team}.glb
  */
 export function riggedTeamGlbUrl(region: RegionId, team: Color): string {
-  return `/models/rigged/${region}_${team}.glb`;
+  return publicUrl(`/models/rigged/${region}_${team}.glb`);
 }
 
 /** Hunyuan per-piece (only when generated into hunyuan/). KayKit _kaykit/ is never loaded. */
 export function hunyuanPieceGlbUrl(region: RegionId, team: Color, piece: PieceSymbol): string {
-  return `/models/rigged/hunyuan/${region}_${team}_${piece}.glb`;
+  return publicUrl(`/models/rigged/hunyuan/${region}_${team}_${piece}.glb`);
 }
 
 export function riggedUnitGlbUrl(region: RegionId, team: Color): string {
