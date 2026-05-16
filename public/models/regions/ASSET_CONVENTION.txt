@@ -1,0 +1,15 @@
+Optional per-piece GLB overrides (workshop / manual)
+====================================================
+
+Default armies are auto-built by GLB Forge:
+
+  npm run glb-forge
+
+Output: public/models/armies/{region}_{team}.glb  (12 files)
+
+Legacy per-piece path (optional):
+
+  public/models/regions/{region}/{piece}.glb
+
+Animations on soldier rig: Idle, Walk, TPose.
+

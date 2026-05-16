@@ -1,0 +1,50 @@
+{
+  "name": "country-chess",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "png-to-rigged": "node scripts/png-to-rigged/run.mjs",
+    "png-to-rigged:tripo": "node scripts/png-to-rigged/run.mjs --tripo",
+    "free-units": "node scripts/png-to-rigged/run.mjs",
+    "free-units:kaykit": "node scripts/free-units/download-kaykit.mjs",
+    "free-units:pieces": "node scripts/free-units/download-kaykit-pieces.mjs",
+    "free-units:bake": "node scripts/free-units/bake-nation-pieces.mjs",
+    "free-units:national": "node scripts/free-units/download-national-units.mjs",
+    "free-units:quarantine-kaykit": "node scripts/free-units/quarantine-kaykit-rigged.mjs",
+    "free-units:pieces-hunyuan": "python scripts/free-units/generate-from-png-pieces.py",
+    "free-units:from-png": "python scripts/free-units/generate-from-png.py",
+    "fetch:units": "node scripts/fetch-region-units.mjs",
+    "build-units": "npm run free-units:from-png",
+    "png-to-glb": "node scripts/png-to-glb/index.mjs",
+    "glb-forge": "node scripts/glb-forge/index.mjs bake",
+    "glb-forge:inspect": "node scripts/glb-forge/index.mjs inspect",
+    "generate:models": "npm run free-units:from-png",
+    "generate:terrain": "node scripts/generate-terrain-textures.mjs",
+    "generate:garments": "node scripts/generate-garments-from-units.mjs",
+    "generate:assets": "npm run generate:garments && npm run generate:terrain",
+    "postinstall": "npm run generate:garments && npm run generate:terrain"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.117.3",
+    "@react-three/fiber": "^8.17.10",
+    "@sashite/qi": "^2.0.0",
+    "chess.js": "^1.0.0-beta.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@gltf-transform/core": "^4.1.3",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.170.0",
+    "@vitejs/plugin-react": "^4.3.3",
+    "sharp": "^0.33.5",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.11"
+  }
+}
